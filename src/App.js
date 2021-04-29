@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Coffees from './components/Coffees'
+import Header from './components/header'
+import Main from './components/main'
+import Footer from './components/footer'
+
+import './App.css'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false) // is creating state
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        {/* <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> */}
+        <button onClick={() => setIsLoggedIn(!isLoggedIn)}> button in App</button>
+        <h1>Welcome {isLoggedIn ? 'hi mr ' : 'log in pls'}</h1>
       </header>
+      <section className='main-section'>
+        <Main />
+      </section>
+      <Coffees />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
