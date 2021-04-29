@@ -1,39 +1,33 @@
 import React from 'react'
 import SingleCoffee from './SingleCoffee'
 
-// function Coffees() {
-//   return <section>functional component coffees</section>
-// }
-
-class Coffees extends React.Component {
+class Coffees extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      data: [],
+      coffees: []
     }
   }
-
   componentDidMount() {
-    console.log('my component loaded painfully')
-
     fetch('https://api.sampleapis.com/coffee/hot')
       .then(response => response.json())
-      .then(dataReceived => this.setState({ data: dataReceived }))
-      .catch()
+      .then(data => this.setState({ coffees: data}))
+      .catch(err => console.log(err))
   }
-
   render() {
-    console.log('this is the data', this.state.data)
-
+    const { coffees } = this.state
+    if(!coffees) {
+      return <h2>Loading</h2>
+    }
     return (
       <>
-        <ul className='allCoffees'>
-          {this.state.data.map(item => {
-            return <SingleCoffee item={item} />
-          })}
-        </ul>
+        <h2>Coffees:</h2>
+        {coffees.map(coffee => {
+          return <SingleCoffee key={coffee.id} item={item} />
+        })}
       </>
     )
+
   }
 }
 

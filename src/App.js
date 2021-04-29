@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState }  from 'react'
+import Header from './components/Header'
+import Main from './components/Main'
+import Footer from './components/Footer'
 import Coffees from './components/Coffees'
-import Header from './components/header'
-import Main from './components/main'
-import Footer from './components/footer'
-
 import './App.css'
 
 function App() {
@@ -12,14 +11,12 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        {/* <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> */}
-        <button onClick={() => setIsLoggedIn(!isLoggedIn)}> button in App</button>
-        <h1>Welcome {isLoggedIn ? 'hi mr ' : 'log in pls'}</h1>
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       <section className='main-section'>
         <Main />
+        <Coffees />
       </section>
-      <Coffees />
       <Footer />
     </div>
   )
