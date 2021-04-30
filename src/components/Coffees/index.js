@@ -23,11 +23,10 @@ class Coffees extends React.Component{
       <>
         <h2>Coffees:</h2>
         {coffees.map(coffee => {
-          return <SingleCoffee key={coffee.id} item={item} />
+          return <SingleCoffee key={coffee.id} coffee={coffee} />
         })}
       </>
     )
-
   }
 }
 
