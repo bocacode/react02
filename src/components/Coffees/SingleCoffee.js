@@ -1,17 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SingleCoffee({ coffee }) {
   if(!coffee.title) {
     return null
   }
+  const slug = coffee.title.toLowerCase().replace(' ', '-')
   return (
-    <li key={coffee.id}>
-      <div>
-        <h3>{coffee.title}</h3>
-        <span>{coffee.description} </span>
-      </div>
-      <img src={`https://loremflickr.com/200/200/coffee?lock=${coffee.id}`} alt='' />
-    </li>
+    <p><Link to={`/coffees/${slug}`}>{coffee.title}</Link></p>
   )
 }
 

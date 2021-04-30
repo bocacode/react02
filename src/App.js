@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 import Coffees from './components/Coffees'
+import CoffeeDetails from './components/Coffees/CoffeeDetails'
 import './App.css'
 
 function App() {
@@ -16,12 +17,9 @@ function App() {
         </header>
         <section className='main-section'>
           <Switch>
-            <Route path="/coffee">
-              <Coffees />
-            </Route>
-            <Route path="/">
-              <Main />
-            </Route>
+            <Route path="/coffees/:slug" component={CoffeeDetails} />
+            <Route path="/coffees" component={Coffees} />
+            <Route path="/" component={Main} />
           </Switch>
         </section>
         <Footer />
