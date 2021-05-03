@@ -17,7 +17,7 @@ function App() {
         </header>
         <section className='main-section'>
           <Switch>
-            <Route path="/coffees/:slug" component={CoffeeDetails} />
+            <Route path="/coffees/:type/:id" component={CoffeeDetails} />
             <Route path="/coffees" component={Coffees} />
             <Route path="/" component={Main} />
           </Switch>
