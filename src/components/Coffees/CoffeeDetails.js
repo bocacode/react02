@@ -8,6 +8,7 @@ function CoffeeDetails() {
     fetch(`https://api.sampleapis.com/coffee/${type}`)
       .then(response => response.json())
       .then(data => {
+        // eslint-disable-next-line
         const oneCoffee = data.find(coffee => coffee.id == id)
         setThisCoffee(oneCoffee)
       })
